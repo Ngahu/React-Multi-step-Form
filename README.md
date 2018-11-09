@@ -1,4 +1,4 @@
-# React Step Form
+# React  Step Form
 
 > Form with multiple steps and confirmation. Frontend only, no API. Uses Material UI
 
@@ -19,7 +19,7 @@ npm run build
 
 ### Author
 
-Brad Traversy
+Ngahu Joel
 [Ngahu](https://ngahu.pythonanywhere.com)
 
 ### Version
