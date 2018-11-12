@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import FormUserDetails from './FormUserDetails';
 import FormPersonalDetails from './FormPersonalDetails';
 import Confirm from './Confirm';
-// import Success from './Success';
+import Success from './Success';
 
 
 class UserForm extends Component {
@@ -88,7 +88,9 @@ class UserForm extends Component {
             )
 
             case 4:
-            return (<h1>hello step 4 success </h1>)
+            return (
+                <Success/>
+            )
 
             default:
                 return (
