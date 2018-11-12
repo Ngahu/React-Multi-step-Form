@@ -1,51 +1,83 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+
+
 
 class FormPersonalDetails extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props)
 
     }
 
-    componentWillMount() {
+
+    continue =e => {
+        e.preventDefault();
+        this.props.nextStep();
 
     }
 
-    componentDidMount() {
+    previous =e => {
+        e.preventDefault();
+        this.props.previousStep();
 
     }
 
-    componentWillReceiveProps(nextProps) {
-
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-
-    }
-
-    componentWillUnmount() {
-
-    }
+  
 
     render() {
+        const { values, handleChange } = this.props;
         return (
-            <div>
-
-            </div>
+          <MuiThemeProvider>
+            <React.Fragment>
+              <AppBar title="Enter Personal Details" />
+              <TextField
+                hintText="Enter Your Occupation"
+                floatingLabelText="Occupation"
+                onChange={handleChange('occupation')}
+                defaultValue={values.occupation}
+              />
+              <br />
+              <TextField
+                hintText="Enter Your City"
+                floatingLabelText="City"
+                onChange={handleChange('city')}
+                defaultValue={values.city}
+              />
+              <br />
+              <TextField
+                hintText="Enter Your Bio"
+                floatingLabelText="Bio"
+                onChange={handleChange('bio')}
+                defaultValue={values.bio}
+              />
+              <br />
+              <RaisedButton
+                label="Continue"
+                primary={true}
+                style={styles.button}
+                onClick={this.continue}
+              />
+              <RaisedButton
+                label="Back"
+                primary={false}
+                style={styles.button}
+                onClick={this.back}
+              />
+            </React.Fragment>
+          </MuiThemeProvider>
         );
     }
 }
 
-FormPersonalDetails.propTypes = {
-
-};
+const styles = {
+    button: {
+      margin: 15
+    }
+  };
 
 export default FormPersonalDetails;

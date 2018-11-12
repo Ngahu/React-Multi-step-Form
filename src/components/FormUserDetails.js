@@ -51,27 +51,12 @@ class FormUserDetails extends Component {
                 />
 
                 <br/>
-                <TextField
-                 hintText="Enter your occupation"
-                 floatingLabelText="occupation"
-                 onChange={handleChange('occupation')}
-                 defaultValue={values.occupation}
-                />
 
-                <br/>
-                <TextField
-                 hintText="Enter your bio"
-                 floatingLabelText="bio"
-                 onChange={handleChange('bio')}
-                 defaultValue={values.bio}
-                />
-
-                <br/>
-                <TextField
-                 hintText="Enter your city"
-                 floatingLabelText="city"
-                 onChange={handleChange('city')}
-                 defaultValue={values.city}
+                <RaisedButton 
+                 label="Continue"
+                 primary={true}
+                 style={styles.button}
+                 onClick={this.continue}
                 />
 
 
@@ -85,5 +70,12 @@ class FormUserDetails extends Component {
 FormUserDetails.propTypes = {
 
 };
+
+
+const styles = {
+    button:{
+        margin:15
+    }
+}
 
 export default FormUserDetails;
