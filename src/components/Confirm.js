@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+import { List, ListItem } from 'material-ui/List';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Confirm extends Component {
     constructor(props) {
@@ -7,45 +10,60 @@ class Confirm extends Component {
 
     }
 
-    componentWillMount() {
+
+    continue = e => {
+        e.preventDefault();
+        // PROCESS FORM //
+        this.props.nextStep();
+      };
+
+      previous =e => {
+        e.preventDefault();
+        this.props.previousStep();
 
     }
 
-    componentDidMount() {
 
-    }
-
-    componentWillReceiveProps(nextProps) {
-
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-
-    }
-
-    componentWillUnmount() {
-
-    }
 
     render() {
+        const { values:{firstName, lastName, email, occupation, city, bio} } =this.props;
         return (
-            <div>
-
-            </div>
-        );
+            <MuiThemeProvider>
+              <React.Fragment>
+                <AppBar title="Confirm User Data" />
+                <List>
+                  <ListItem primaryText="First Name" secondaryText={firstName} />
+                  <ListItem primaryText="Last Name" secondaryText={lastName} />
+                  <ListItem primaryText="Email" secondaryText={email} />
+                  <ListItem primaryText="Occupation" secondaryText={occupation} />
+                  <ListItem primaryText="City" secondaryText={city} />
+                  <ListItem primaryText="Bio" secondaryText={bio} />
+                </List>
+                <br />
+                <RaisedButton
+                  label="Back"
+                  primary={false}
+                  style={styles.button}
+                  onClick={this.previous}
+                />
+                
+                <RaisedButton
+                  label="Confirm & Continue"
+                  primary={true}
+                  style={styles.button}
+                  onClick={this.continue}
+                />
+                
+              </React.Fragment>
+            </MuiThemeProvider>
+          );
     }
 }
 
-Confirm.propTypes = {
 
-};
-
+const styles = {
+    button: {
+      margin: 15
+    }
+  };
 export default Confirm;

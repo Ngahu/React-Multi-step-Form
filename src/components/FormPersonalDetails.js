@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
@@ -57,17 +56,19 @@ class FormPersonalDetails extends Component {
               />
               <br />
               <RaisedButton
+                label="Back"
+                primary={false}
+                style={styles.button}
+                onClick={this.previous}
+              />
+
+              <RaisedButton
                 label="Continue"
                 primary={true}
                 style={styles.button}
                 onClick={this.continue}
               />
-              <RaisedButton
-                label="Back"
-                primary={false}
-                style={styles.button}
-                onClick={this.back}
-              />
+              
             </React.Fragment>
           </MuiThemeProvider>
         );

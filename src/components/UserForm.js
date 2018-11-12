@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import FormUserDetails from './FormUserDetails';
-
+import FormPersonalDetails from './FormPersonalDetails';
+import Confirm from './Confirm';
+// import Success from './Success';
 
 
 class UserForm extends Component {
@@ -68,13 +69,35 @@ class UserForm extends Component {
                 )
             
             case 2:
-                return (<h1>hello step 2 </h1>)
+                return (
+                    <FormPersonalDetails
+                     nextStep={this.nextStep}
+                     handleChange={this.handleChange}
+                     values={values}
+                     previousStep={this.previousStep}
+                    />
+                )
             
             case 3:
-            return (<h1>hello step 3 confirm </h1>)
+            return (
+                <Confirm
+                     nextStep={this.nextStep}
+                     values={values}
+                     previousStep={this.previousStep}
+                    />
+            )
 
             case 4:
             return (<h1>hello step 4 success </h1>)
+
+            default:
+                return (
+                    <FormUserDetails
+                     nextStep={this.nextStep}
+                     handleChange={this.handleChange}
+                     values={values}
+                    />
+                )
 
 
 
