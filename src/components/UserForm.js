@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import FormUserDetails from './FormUserDetails';
+
+
+
 class UserForm extends Component {
     constructor(props) {
         super(props);
@@ -48,11 +52,36 @@ class UserForm extends Component {
     }
 
     render() {
-        return (
-            <div>
 
-            </div>
-        );
+        const {step } = this.state;
+        const {firstName, lastName, email, occupation, city, bio } = this.state
+        const values = {firstName, lastName, email, occupation, city, bio }
+        
+        switch(step){
+            case 1:
+                return (
+                    <FormUserDetails
+                     nextStep={this.nextStep}
+                     handleChange={this.handleChange}
+                     values={values}
+                    />
+                )
+            
+            case 2:
+                return (<h1>hello step 2 </h1>)
+            
+            case 3:
+            return (<h1>hello step 3 confirm </h1>)
+
+            case 4:
+            return (<h1>hello step 4 success </h1>)
+
+
+
+
+                
+
+        }
     }
 }
 
